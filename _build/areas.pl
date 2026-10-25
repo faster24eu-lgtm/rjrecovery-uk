@@ -262,7 +262,7 @@ for my $a (@AREAS) {
   (my $nplain = $n) =~ s/&amp;/&/g;
   push @main::PAGES, {
     path => "towing/$a->{slug}", kind => 'area', nav => 'towing', crumbs => [ [ 'Areas', 'towing' ] ],
-    label => $n, card => $a->{pc},
+    label => $n, card => $a->{pc}, big => ($n =~ s/(,| &amp;).*//r),
     service => 'Car towing and breakdown recovery', area => "$nplain, London",
     title => "Towing $n 24/7 | Car &amp; Van Recovery $a->{pc} | {{PRICE}}",
     description => "24/7 car towing and breakdown recovery in $n ($a->{pc}). Flatbed recovery to home or garage, jump starts, accident and van recovery. Price agreed before dispatch.",
@@ -288,7 +288,7 @@ for my $t (@TYRE) {
   push @main::PAGES, {
     path => "mobile-tyre-fitting-$slug", kind => 'tyre', nav => 'services',
     crumbs => [ [ 'Services', 'services' ], [ 'Flat tyre help', 'mobile-tyre-fitting' ] ],
-    label => "Flat tyre $name",
+    label => "Flat tyre $name", big => $name,
     service => 'Flat tyre assistance', area => "$name, London",
     title => "Flat Tyre $name 24/7 | Mobile Tyre Help, Spare Fitted or Tow",
     description => "Flat tyre in $name with no spare or a stuck locking wheel nut? 24/7 help: spare wheel fitted, a mobile tyre fitter arranged, or the car towed to a tyre shop.",

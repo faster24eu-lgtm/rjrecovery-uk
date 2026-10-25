@@ -107,7 +107,7 @@ sub breadcrumbs {
 sub faq_html {
   my $p = shift;
   return ('', '') unless $p->{faq} && @{ $p->{faq} };
-  my $html = qq(<section class="faq"><h2>Questions people ask</h2>\n);
+  my $html = qq(<section class="faq"><p class="eyebrow">FAQ</p><h2>Questions people ask</h2>\n);
   my @ld;
   for my $q (@{ $p->{faq} }) {
     $html .= "<details><summary>$q->[0]</summary><p>" . fill($q->[1]) . "</p></details>\n";
@@ -150,15 +150,24 @@ sub render {
   my $lead = $p->{lead} ? '<p class="lead">' . fill($p->{lead}) . '</p>' : '';
   my $hero_cta = $p->{no_cta} ? '' : <<"HTML";
 <div class="hero-cta">
-  <a class="btn btn-main" href="$PHONE_HREF">Call $PHONE</a>
-  <a class="btn btn-ghost" href="$WA_HREF">Send location on WhatsApp</a>
+  <a class="btn btn-light" href="$PHONE_HREF">Call $PHONE <span aria-hidden="true">&rarr;</span></a>
+  <a class="btn btn-glass" href="$WA_HREF">Send location on WhatsApp</a>
 </div>
-<ul class="ticks"><li>Answered 24/7</li><li>Price agreed before dispatch</li><li>Cars, vans &amp; motorbikes</li></ul>
+HTML
+  my $big = $p->{big} // '24/7 Towing';
+  my $n = length(plain($big)) || 1;
+  $n = 6 if $n < 6;
+  my $pills = $p->{no_cta} ? '' : <<'HTML';
+<ul class="pills">
+  <li><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Answered 24/7, all of London</li>
+  <li><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Price agreed before dispatch</li>
+</ul>
 HTML
   my $body = fill($p->{body} // '');
   my $aside = $p->{no_form} ? '' : <<"HTML";
 <aside class="side" id="quote">
   <div class="side-box">
+    <p class="eyebrow">Free quote</p>
     <h2>Get a tow price</h2>
     <p>Fill this in and we call you back, usually within a few minutes. Quickest is still a phone call.</p>
     @{[ quote_form() ]}
@@ -187,29 +196,35 @@ $robots<link rel="canonical" href="$canon">
 <meta property="og:title" content="$title">
 <meta property="og:description" content="$desc">
 <meta property="og:url" content="$canon">
-<meta name="theme-color" content="#0f1b2d">
+<meta name="theme-color" content="#111111">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght\@500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="/assets/site.css">
 $crumb_ld$faq_ld$svc_ld$extra_ld</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="/"><svg aria-hidden="true" viewBox="0 0 32 32" width="30" height="30"><rect width="32" height="32" rx="6" fill="#ff7a1a"/><path d="M5 21h3l3-8h8l3 4h4v4h-2a3 3 0 0 1-6 0h-6a3 3 0 0 1-6 0H5z" fill="#0f1b2d"/><circle cx="11" cy="21" r="1.6" fill="#ff7a1a"/><circle cx="23" cy="21" r="1.6" fill="#ff7a1a"/></svg><span>London <b>24/7</b> Towing</span></a>
+    <a class="brand" href="/"><svg aria-hidden="true" viewBox="0 0 32 32" width="32" height="32"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M6.5 20h2.5l2.5-6h7l2.5 3h4.5v3h-1.6a2.4 2.4 0 0 1-4.8 0h-5.2a2.4 2.4 0 0 1-4.8 0H6.5z" fill="currentColor"/></svg><span>London 24/7 Towing</span></a>
     <nav class="desk" aria-label="Main"><ul>$nav</ul></nav>
-    <a class="top-call" href="$PHONE_HREF"><span>24/7</span> $PHONE</a>
-    <details class="menu"><summary aria-label="Menu">&#9776;</summary><ul>$nav</ul></details>
+    <a class="top-call" href="$PHONE_HREF">$PHONE</a>
+    <details class="menu"><summary aria-label="Menu"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></summary><ul>$nav</ul></details>
   </div>
 </header>
-$crumbs
 <main id="main">
-<section class="hero">
+<section class="hero@{[ $p->{path} eq '' ? ' hero-home' : '' ]}">
+  <img class="hero-bg" src="/assets/hero-tow-1600.jpg" srcset="/assets/hero-tow-800.jpg 800w, /assets/hero-tow-1600.jpg 1600w" sizes="100vw" alt="" fetchpriority="high">
   <div class="hero-in">
+    <p class="mega" aria-hidden="true" style="--n:$n">$big</p>
+    $pills
     <h1>$h1</h1>
     $lead
     $hero_cta
   </div>
 </section>
+$crumbs
 <div class="$wrap">
   <article class="content">
 $body
@@ -218,9 +233,10 @@ $faq
 $aside</div>
 <section class="band">
   <div class="band-in">
+    <p class="eyebrow eyebrow-dark">24/7</p>
     <h2>Stuck right now?</h2>
     <p>Tell us the road or postcode, the vehicle and what happened. You get a price on the call, and the recovery truck comes straight to you.</p>
-    <a class="btn btn-main" href="$PHONE_HREF">Call $PHONE</a>
+    <a class="btn btn-light" href="$PHONE_HREF">Call $PHONE <span aria-hidden="true">&rarr;</span></a>
   </div>
 </section>
 </main>

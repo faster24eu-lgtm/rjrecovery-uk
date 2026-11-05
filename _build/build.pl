@@ -20,8 +20,8 @@ use FindBin qw($Bin);
 
 our $BASE       = 'https://rjrecovery.uk';
 our $NAME       = 'London 24/7 Towing';
-our $PHONE_HREF = 'tel:+442080580013';
-our $PHONE      = '020 8058 0013';
+our $PHONE_HREF = 'tel:+447520639867';
+our $PHONE      = '07520 639867';
 our $WA_HREF    = 'https://wa.me/447988974609?text=Hi%2C%20I%20need%20a%20tow%20in%20London.%20My%20location%20is%3A%20';
 our $FORM_TO    = 'faster24eu@gmail.com';    # formsubmit.co recipient
 our $PRICE      = 'from &pound;125';

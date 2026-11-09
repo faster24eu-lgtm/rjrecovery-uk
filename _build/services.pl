@@ -8,7 +8,7 @@ push @main::PAGES,
   path => 'car-towing', kind => 'service', nav => 'services', crumbs => \@svc_crumb,
   label => 'Car towing', card => 'Flatbed tow to your home, garage or anywhere in the UK.',
   service => 'Car towing',
-  title => 'Car Towing London 24/7 | Flatbed Tow {{PRICE}} | Price Agreed First',
+  title => 'Car Towing London 24/7 | Flatbed Tow {{PRICE}}',
   description => 'Car towing anywhere in Greater London, 24 hours a day. Flatbed recovery to your home, garage or dealer, with the price agreed on the phone before the truck is sent.',
   h1 => 'Car towing in London, any time of day',
   lead => 'Your car won&rsquo;t move and needs to be somewhere else: home, a garage, a dealer, a scrapyard or the other end of the country. One call and a flatbed comes to you.',
@@ -48,7 +48,7 @@ HTML
   path => 'breakdown-recovery', kind => 'service', nav => 'services', crumbs => \@svc_crumb,
   label => 'Breakdown recovery', card => 'Broken down on the road? Roadside fix if possible, tow if not.',
   service => 'Breakdown recovery',
-  title => 'Breakdown Recovery London | 24 Hour Roadside Help, No Membership Needed',
+  title => 'Breakdown Recovery London 24/7 | No Membership Needed',
   description => 'Broken down in London without breakdown cover? Pay-as-you-go 24 hour breakdown recovery: we fix it at the roadside where we can, or tow you home or to a garage. Price agreed first.',
   h1 => 'Broken down in London? No membership needed.',
   lead => 'No cover, cover that won&rsquo;t come out for hours, or a vehicle your policy doesn&rsquo;t include: you can still get help. Pay once, for this breakdown only.',
@@ -86,7 +86,7 @@ HTML
   path => 'accident-recovery', kind => 'service', nav => 'services', crumbs => \@svc_crumb,
   label => 'Accident recovery', card => 'Damaged car taken to your home, body shop or storage.',
   service => 'Accident recovery',
-  title => 'Accident Recovery London | 24/7 Damaged Car Towing to Home or Body Shop',
+  title => 'Accident Recovery London 24/7 | Damaged Car Towing',
   description => 'Accident recovery across London, 24/7. We collect damaged and non-driveable cars from the scene, police pound or garage, and take them to your home, body shop or storage.',
   h1 => 'Accident recovery in London',
   lead => 'After a collision the last thing you want is a recovery company you&rsquo;ve never heard of taking your car to a yard you can&rsquo;t find. You choose where it goes, and the price is agreed before it moves.',
@@ -122,7 +122,7 @@ HTML
   path => 'van-recovery', kind => 'service', nav => 'services', crumbs => \@svc_crumb,
   label => 'Van recovery', card => 'Transit, Sprinter, Luton and loaded vans up to 3.5 tonnes.',
   service => 'Van recovery',
-  title => 'Van Recovery London 24/7 | Transit, Sprinter & Luton Van Towing',
+  title => 'Van Recovery London 24/7 | Transit, Sprinter &amp; Luton',
   description => 'Broken-down van in London? 24/7 recovery for Transit, Sprinter, Vivaro, Crafter and Luton vans up to 3.5t, loaded or empty. Price agreed before dispatch.',
   h1 => 'Van recovery across London',
   lead => 'A van off the road is a day&rsquo;s work lost. We send a truck rated for your van&rsquo;s size and weight, loaded or empty, to the street, site or depot it broke down at.',
@@ -179,7 +179,7 @@ HTML
   path => 'jumpstart', kind => 'service', nav => 'services', crumbs => \@svc_crumb,
   label => 'Jump start', card => 'Flat battery? Roadside jump start, or a tow if it won&rsquo;t take.',
   service => 'Jump start',
-  title => 'Jump Start London 24/7 | Flat Battery Help at Home or Roadside',
+  title => 'Jump Start London 24/7 | Flat Battery Help',
   description => 'Flat battery in London? 24/7 jump start at your home, work or the roadside for cars, vans and bikes. If the battery won&rsquo;t hold a charge, we can tow you to a garage.',
   h1 => 'Flat battery? Jump start, day or night',
   lead => 'Clicking, dashboard lights flickering, or nothing at all when you turn the key: it&rsquo;s probably the battery. An operator with a professional booster pack can usually have you running in minutes.',
@@ -210,7 +210,7 @@ HTML
   path => 'wrong-fuel', kind => 'service', nav => 'services', crumbs => \@svc_crumb,
   label => 'Wrong fuel', card => 'Petrol in a diesel or diesel in a petrol? Don&rsquo;t start it.',
   service => 'Wrong fuel recovery',
-  title => 'Wrong Fuel London | Petrol in Diesel? Don&rsquo;t Start It, Call Us 24/7',
+  title => 'Wrong Fuel London 24/7 | Petrol in Diesel? Call Us',
   description => 'Put petrol in a diesel or diesel in a petrol car in London? Don&rsquo;t start the engine. We tow the car from the forecourt to a garage that can drain the tank, 24/7.',
   h1 => 'Wrong fuel? Don&rsquo;t turn the key.',
   lead => 'Petrol in a diesel is the expensive one. The longer it circulates, the more damage it does to the pump and injectors. If you haven&rsquo;t started the car, you&rsquo;ve done the most important thing.',
@@ -238,8 +238,8 @@ HTML
   path => 'mobile-tyre-fitting', kind => 'service', nav => 'services', crumbs => \@svc_crumb,
   label => 'Flat tyre help', card => 'Puncture, no spare, or locking wheel nut missing.',
   service => 'Flat tyre assistance',
-  title => 'Flat Tyre London 24/7 | Mobile Tyre Help or Tow to a Tyre Shop',
-  description => 'Flat tyre in London with no spare, a seized wheel or no locking wheel nut key? 24/7 help: we change to your spare, arrange a mobile tyre fitter, or tow you to a tyre shop.',
+  title => 'Flat Tyre London 24/7 | Mobile Tyre Help or Tow',
+  description => 'Flat tyre in London with no spare or no locking wheel nut key? 24/7: spare fitted, mobile tyre fitter sent, or a tow to a tyre shop.',
   h1 => 'Flat tyre in London? We&rsquo;ll get you rolling.',
   lead => 'A flat tyre is simple until it isn&rsquo;t: no spare, only a foam kit, a locking wheel nut with no key, or a tyre torn by a pothole. Tell us what you have and we&rsquo;ll send the right help.',
   body => <<'HTML',
@@ -260,13 +260,16 @@ HTML
 <p>Most of the punctures we see in London are sidewall cuts and bulges from potholes, kerbs and speed humps. These can&rsquo;t be repaired and the tyre needs replacing. A nail in the middle of the tread can often be plugged.</p>
 
 <h2>Flat tyre help by area</h2>
-<ul class="inline">
-  <li><a href="/mobile-tyre-fitting-wembley/">Wembley</a></li>
-  <li><a href="/mobile-tyre-fitting-ealing/">Ealing</a></li>
-  <li><a href="/mobile-tyre-fitting-harrow/">Harrow</a></li>
-  <li><a href="/mobile-tyre-fitting-nw10/">NW10</a></li>
-  <li><a href="/mobile-tyre-fitting-acton/">Acton</a></li>
-</ul>
+<h3 id="tyre-wembley">Flat tyre in Wembley</h3>
+<p>On the North Circular past Brent Park, potholes on the slip roads and kerbs in the stadium car parks cause a lot of sidewall damage. If you&rsquo;re on the A406 itself, don&rsquo;t change a wheel next to live traffic. Get to a side road or wait behind the barrier. If the car won&rsquo;t move at all, see <a href="/towing/wembley/">towing in Wembley</a>.</p>
+<h3 id="tyre-ealing">Flat tyre in Ealing</h3>
+<p>Speed humps and high kerbs on Ealing&rsquo;s residential streets cause many of the punctures we see in W5 and W13. On the A40 or around Hanger Lane, don&rsquo;t attempt a wheel change at the roadside. Wait somewhere safe for the truck. If the car won&rsquo;t move at all, see <a href="/towing/ealing/">towing in Ealing</a>.</p>
+<h3 id="tyre-harrow">Flat tyre in Harrow</h3>
+<p>Harrow&rsquo;s hills and multi-storey car park ramps are hard on tyres and wheels, and locking wheel nuts often seize on cars that only do short local trips. Let us know if you can&rsquo;t find your locking nut key. If the car won&rsquo;t move at all, see <a href="/towing/harrow/">towing in Harrow</a>.</p>
+<h3 id="tyre-nw10">Flat tyre in NW10 (Willesden, Harlesden, Neasden)</h3>
+<p>Across Willesden, Harlesden and Neasden, a flat often happens on a busy red route like the Harrow Road, where you can&rsquo;t stay long. If it&rsquo;s not safe to change the wheel there, the car can go on the truck to a tyre shop. If the car won&rsquo;t move at all, see <a href="/towing/willesden/">towing in NW10</a>.</p>
+<h3 id="tyre-acton">Flat tyre in Acton and Park Royal</h3>
+<p>Park Royal&rsquo;s industrial roads are full of screws, nails and debris, so vans there pick up punctures all the time. Tell us the van&rsquo;s tyre size (it&rsquo;s on the sidewall). Commercial tyres are often not stocked on mobile vans, and a tow to a tyre depot can be quicker. If the car won&rsquo;t move at all, see <a href="/towing/acton/">towing in Acton and Park Royal</a>.</p>
 HTML
   faq => [
     [ 'I don&rsquo;t have a spare wheel, only a tyre repair kit. What now?', 'Kits only work for small punctures in the tread. For a sidewall cut or a big hole, you need a new tyre fitted where you are, or a tow to a tyre shop. Call us and we&rsquo;ll arrange whichever is quicker.' ],
@@ -278,7 +281,7 @@ HTML
   path => 'stuck-vehicle-winching', kind => 'service', nav => 'services', crumbs => \@svc_crumb,
   label => 'Stuck vehicle winching', card => 'In a ditch, mud, kerb or snow? Winched out and checked.',
   service => 'Vehicle winching',
-  title => 'Stuck Car or Van Winching London | Mud, Ditch, Kerb & Snow Recovery',
+  title => 'Stuck Car or Van Winching London | Mud, Ditch &amp; Snow',
   description => 'Car or van stuck in mud, a ditch, grass verge, snow or beached on a kerb in or around London? We winch it out and check it, then tow it if needed. 24/7.',
   h1 => 'Stuck in mud, a ditch or on a kerb?',
   lead => 'Spinning the wheels usually digs you deeper. Stop, and let a recovery truck with a winch pull it out in a straight, controlled line.',

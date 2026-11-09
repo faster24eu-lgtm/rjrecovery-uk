@@ -216,6 +216,61 @@ my @AREAS = (
       [ 'Do you cover all of NW10?', 'Yes: Willesden, Harlesden, Neasden, Stonebridge, Kensal Green, Dollis Hill and the Park Royal side.' ],
     ],
   },
+  {
+    slug => 'tottenham-hale', name => 'Tottenham Hale &amp; Seven Sisters', pc => 'N17 &amp; N15', borough => 'Haringey',
+    extra => [ 'Lea Valley side of the area', 'Ferry Lane runs past the reservoirs and Walthamstow Wetlands, where visitors park for hours and come back to a flat battery. On the Tottenham side, many people drive to Tottenham Hale station, park in a nearby street and catch the Victoria line or the Stansted Express. If your car won&rsquo;t start when you get back, tell us the street and whether you&rsquo;re in a permit bay, so we can move it before a ticket arrives.' ],
+    desc => '24/7 towing at Tottenham Hale and Seven Sisters (N17, N15): red routes, station roads and retail park car parks. Price agreed before dispatch.',
+    intro => 'Tottenham Hale and Seven Sisters are two of the busiest interchanges in North London: Victoria line, Overground and Stansted Express stations, bus stations and red-route roads all meeting at once. Breakdowns here need moving fast, and we cover both 24/7.',
+    roads => [
+      [ 'Broad Lane and the roads around Tottenham Hale station', 'Buses, taxis and drop-offs everywhere, with very little room to stop.' ],
+      [ 'Ferry Lane (A503) over the River Lea', 'Heads east towards Walthamstow over the reservoirs, with narrow verges.' ],
+      [ 'Seven Sisters Corner', 'Where Seven Sisters Road meets the High Road (A10), both red routes, so stopping is restricted.' ],
+      [ 'West Green Road and Page Green', 'Busy local roads with parked cars on both sides.' ],
+    ],
+    local => 'Most of what we do here is getting a car off a red route before it blocks a bus lane, and recovering cars that won&rsquo;t start in the Tottenham Hale retail park and the Hale Village car parks. If you&rsquo;re by the station, tell us which entrance or which side of the road you&rsquo;re on: the one-way and two-way sections around the station can send a truck the long way round. For the rest of N17, see our <a href="/towing/tottenham/">Tottenham</a> page.',
+    nearby => [qw(tottenham walthamstow wood-green edmonton)],
+    faq => [
+      [ 'My car has died on Seven Sisters Road. Can you get it off the red route?', 'Yes. Hazards on, stay safe on the pavement, and call with the nearest junction or shop. We&rsquo;ll get it moved as quickly as we can.' ],
+      [ 'Can you collect from the Tottenham Hale retail park?', 'Yes. Tell us which car park and roughly where the car is, and let site staff know a recovery truck is coming.' ],
+    ],
+  },
+  {
+    slug => 'brent-cross', name => 'Brent Cross &amp; the A406', pc => 'NW4, NW2 &amp; NW11', borough => 'Barnet',
+    extra => [ 'Getting your car home from Brent Cross', 'Overnight roadworks and lane closures on the North Circular are common, and they change how a truck reaches you. Tell us exactly where you are and where the car needs to go, and we&rsquo;ll route the operator around closures. With Brent Cross West station now open on the Thameslink line, more people leave cars in the area; if yours won&rsquo;t start in a station or shopping car park, give us the level and bay.' ],
+    desc => '24/7 towing at Brent Cross, Staples Corner and the A406 (NW4, NW2, NW11): flyovers, the M1 start and shopping car parks. Price agreed first.',
+    intro => 'Brent Cross is where the North Circular (A406), the A41 Hendon Way and the start of the M1 come together, next to the shopping centre and the new Brent Cross Town development. A lot of our North London tows start on these junctions.',
+    roads => [
+      [ 'Brent Cross flyover (A41/A406)', 'Fast, with merging traffic on both levels and nowhere to stop on the flyover itself.' ],
+      [ 'Staples Corner (A406/A5/M1 junction 1)', 'A large, busy junction under the flyovers, where the M1 begins.' ],
+      [ 'A406 North Circular between Henlys Corner and Staples Corner', 'Heavy traffic and frequent lane changes.' ],
+      [ 'Brent Cross shopping centre car parks and Brent Cross West station', 'Flat batteries and lost keys after a long shopping trip.' ],
+    ],
+    local => 'If your car stops on the A406 or the flyover, don&rsquo;t try to push it. Hazards on, get out on the kerb side and behind the barrier if there is one, and call 999 if you&rsquo;re stuck in a live lane. Then tell us which junction you passed last and which way you were heading. Around the Brent Cross Town building sites, roads and access change often, so describe the spot carefully. For Hendon, Colindale and Mill Hill, see our <a href="/towing/hendon/">Hendon</a> page.',
+    nearby => [qw(hendon finchley willesden wembley)],
+    faq => [
+      [ 'I&rsquo;ve broken down at Staples Corner. What should I do?', 'Get to the kerb side and somewhere safe, hazards on. If you&rsquo;re in a live lane and can&rsquo;t move, call 999. Then call us with the road and your direction.' ],
+      [ 'Can you collect my car from the Brent Cross shopping centre?', 'Yes. Tell us the car park and the level, and let centre security know a recovery truck is coming.' ],
+    ],
+  },
+  {
+    slug => 'palmers-green', name => 'Palmers Green &amp; Southgate', pc => 'N13 &amp; N14', borough => 'Enfield',
+    extra => [ 'Station car parks and quiet streets', 'Commuters often drive to Southgate, Arnos Grove or Oakwood station and leave the car all day. A car that won&rsquo;t start in the evening is a common call. On the quieter streets around Bourne Hill and Hedge Lane, the slopes matter: tell us if the car is parked on a hill, because a car facing uphill on a narrow street needs a different approach. We can take the car to a local garage, a dealer or your drive, and you hear the full price first.' ],
+    desc => '24/7 towing in Palmers Green, Southgate, Winchmore Hill and Arnos Grove (N13, N14): North Circular and Green Lanes. Price agreed first.',
+    intro => 'Palmers Green, Southgate, Winchmore Hill and Arnos Grove are leafy residential streets crossed by two busy roads: Green Lanes and the North Circular. We recover cars and vans across N13 and N14, 24/7.',
+    roads => [
+      [ 'A406 North Circular at Palmers Green', 'Where Green Lanes crosses the North Circular, one of the busiest junctions in the area.' ],
+      [ 'Green Lanes (A105)', 'The local high street, with buses, shops and loading bays.' ],
+      [ 'Southgate Circus', 'The roundabout by Southgate station, where the A111 and Chase Side meet.' ],
+      [ 'Bourne Hill and Hedge Lane', 'Quieter roads, but hilly and lined with parked cars.' ],
+    ],
+    local => 'Most calls here are cars that won&rsquo;t start on a residential street or a driveway, and breakdowns on the North Circular. Around Broomfield Park and Grovelands Park, cars sometimes sit for hours and the battery gives up. Many streets have controlled parking zones, so if your car died in a permit bay we can move it the same day to a garage or your drive.',
+    nearby => [qw(edmonton enfield wood-green finchley)],
+    faq => [
+      [ 'Do you cover Winchmore Hill and Arnos Grove too?', 'Yes, all of N13 and N14, including Palmers Green, Southgate, Winchmore Hill and Arnos Grove.' ],
+      [ 'My car won&rsquo;t start on my driveway in Southgate. Can you help?', 'Yes. A jump start often gets you going; if not, we can tow the car to a garage of your choice.' ],
+      [ 'I&rsquo;ve broken down where Green Lanes crosses the North Circular. What should I do?', 'Hazards on and get out on the kerb side. If you&rsquo;re stuck in a live lane on the A406, call 999 first. Then call us with the junction and your direction.' ],
+    ],
+  },
 );
 
 my %BY = map { $_->{slug} => $_ } @AREAS;
@@ -234,7 +289,7 @@ $roads
 
 <h2>Good to know locally</h2>
 <p>$a->{local}</p>
-
+${\ ($a->{extra} ? "\n<h2>$a->{extra}[0]</h2>\n<p>$a->{extra}[1]</p>\n" : '')}
 <h2>What we can do in $a->{name}</h2>
 <ul class="inline">
   <li><a href="/car-towing/">Car towing</a></li>
@@ -264,8 +319,8 @@ for my $a (@AREAS) {
     path => "towing/$a->{slug}", kind => 'area', nav => 'towing', crumbs => [ [ 'Areas', 'towing' ] ],
     label => $n, card => $a->{pc}, big => ($n =~ s/(,| &amp;).*//r),
     service => 'Car towing and breakdown recovery', area => "$nplain, London",
-    title => "Towing $n 24/7 | Car &amp; Van Recovery $a->{pc} | {{PRICE}}",
-    description => "24/7 car towing and breakdown recovery in $n ($a->{pc}). Flatbed recovery to home or garage, jump starts, accident and van recovery. Price agreed before dispatch.",
+    title => fit_title("Towing $n 24/7 | Car &amp; Van Recovery {{PRICE}}", "Towing $n 24/7 | Recovery {{PRICE}}", "Towing $n 24/7 | Car &amp; Van Recovery", "Towing $n 24/7"),
+    description => $a->{desc} // "24/7 car towing and breakdown recovery in $n ($a->{pc}). Flatbed recovery to home or garage, jump starts, accident and van recovery. Price agreed before dispatch.",
     h1 => "Towing and breakdown recovery in $n",
     lead => "Cars, vans and motorbikes recovered across $a->{pc}, 24 hours a day. Call with your location and get a price straight away.",
     body => area_body($a),
@@ -273,50 +328,9 @@ for my $a (@AREAS) {
   };
 }
 
-# ---- old tyre URLs, kept so existing links to them still land on a relevant page
-my @TYRE = (
-  [ 'wembley', 'Wembley', 'wembley', 'On the North Circular past Brent Park, potholes on the slip roads and kerbs in the stadium car parks cause a lot of sidewall damage. If you&rsquo;re on the A406 itself, don&rsquo;t change a wheel next to live traffic. Get to a side road or wait behind the barrier.' ],
-  [ 'ealing', 'Ealing', 'ealing', 'Speed humps and high kerbs on Ealing&rsquo;s residential streets cause many of the punctures we see in W5 and W13. On the A40 or around Hanger Lane, don&rsquo;t attempt a wheel change at the roadside. Wait somewhere safe for the truck.' ],
-  [ 'harrow', 'Harrow', 'harrow', 'Harrow&rsquo;s hills and multi-storey car park ramps are hard on tyres and wheels, and locking wheel nuts often seize on cars that only do short local trips. Let us know if you can&rsquo;t find your locking nut key.' ],
-  [ 'nw10', 'NW10', 'willesden', 'Across Willesden, Harlesden and Neasden, a flat often happens on a busy red route like the Harrow Road, where you can&rsquo;t stay long. If it&rsquo;s not safe to change the wheel there, the car can go on the truck to a tyre shop.' ],
-  [ 'acton', 'Acton', 'acton', 'Park Royal&rsquo;s industrial roads are full of screws, nails and debris, so vans there pick up punctures all the time. Tell us the van&rsquo;s tyre size (it&rsquo;s on the sidewall). Commercial tyres are often not stocked on mobile vans, and a tow to a tyre depot can be quicker.' ],
-);
-
-for my $t (@TYRE) {
-  my ($slug, $name, $area, $local) = @$t;
-  my $an = $BY{$area}{name};
-  push @main::PAGES, {
-    path => "mobile-tyre-fitting-$slug", kind => 'tyre', nav => 'services',
-    crumbs => [ [ 'Services', 'services' ], [ 'Flat tyre help', 'mobile-tyre-fitting' ] ],
-    label => "Flat tyre $name", big => $name,
-    service => 'Flat tyre assistance', area => "$name, London",
-    title => "Flat Tyre $name 24/7 | Mobile Tyre Help, Spare Fitted or Tow",
-    description => "Flat tyre in $name with no spare or a stuck locking wheel nut? 24/7 help: spare wheel fitted, a mobile tyre fitter arranged, or the car towed to a tyre shop.",
-    h1 => "Flat tyre in $name? Help 24/7.",
-    lead => "Spare fitted at the roadside, a mobile tyre fitter sent to you, or a tow to a tyre shop. We pick whichever gets you moving fastest.",
-    body => <<"HTML",
-<h2>A flat in $name</h2>
-<p>$local</p>
-
-<h2>What to tell us when you call</h2>
-<ul>
-  <li>Where you are: road, postcode or car park and level</li>
-  <li>Whether you have a spare wheel, a space-saver or only a repair kit</li>
-  <li>Your tyre size from the sidewall, e.g. 225/45 R17 94W</li>
-  <li>Whether you have the locking wheel nut key</li>
-  <li>Whether the wheel itself is damaged: a bent rim, or a tyre torn off the rim</li>
-</ul>
-
-<h2>Our options</h2>
-<p>With a usable spare, the operator fits it and you drive on. With no spare, we either arrange a mobile fitter with your size or tow the car to a tyre shop. At night or with an unusual size, the tow is often quicker. The price is agreed before anyone is sent. See <a href="/mobile-tyre-fitting/">flat tyre help</a> for more detail.</p>
-
-<p>Car won&rsquo;t move at all? See <a href="/towing/$area/">towing and breakdown recovery in $an</a>.</p>
-HTML
-    faq => [
-      [ "Can you fit a new tyre at my home in $name?", 'Often, yes, through a mobile fitter, if your size is in stock. Give us the size when you call and we&rsquo;ll check before booking.' ],
-      [ 'Is it OK to drive slowly to a tyre shop on a flat?', 'No. Even a short distance on a flat ruins the tyre and can damage the wheel, unless it&rsquo;s a run-flat tyre within its stated distance.' ],
-    ],
-  };
-}
+# ---- old tyre URLs (merged into /mobile-tyre-fitting/ on 2026-11-09): redirect stubs written by build.pl
+our %REDIRECTS;
+$main::REDIRECTS{"mobile-tyre-fitting-$_"} = "/mobile-tyre-fitting/#tyre-$_" for qw(wembley ealing harrow nw10 acton);
+sub fit_title { for (@_) { (my $t = $_) =~ s/\{\{PRICE\}\}/$main::PRICE/g; $t =~ s/&amp;/&/g; $t =~ s/&pound;/£/g; return $_ if length($t) <= 60 } $_[-1] }
 
 1;

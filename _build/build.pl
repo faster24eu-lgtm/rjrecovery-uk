@@ -25,6 +25,8 @@ our $PHONE      = '07520 639867';
 our $WA_HREF    = 'https://wa.me/447988974609?text=Hi%2C%20I%20need%20a%20tow%20in%20London.%20My%20location%20is%3A%20';
 our $FORM_TO    = 'faster24eu@gmail.com';    # formsubmit.co recipient
 our $PRICE      = 'from &pound;125';
+our $LASTMOD    = '2026-11-09';   # sitemap lastmod; bump when pages change
+our %REDIRECTS;
 our $YEAR       = (localtime)[5] + 1900;
 
 my $ROOT = dirname($Bin);
@@ -72,12 +74,12 @@ sub quote_form {
   <input type="hidden" name="_subject" value="rjrecovery.uk: new tow request">
   <input type="hidden" name="_next" value="$BASE/thank-you/">
   <input type="hidden" name="_template" value="table">
-  <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
-  <label>Your name<input type="text" name="name" required autocomplete="name"></label>
-  <label>Phone number<input type="tel" name="phone" required autocomplete="tel"></label>
-  <label>Where is the vehicle? <small>Road, postcode or landmark</small><input type="text" name="pickup" required></label>
-  <label>Where should it go?<input type="text" name="dropoff" placeholder="Home, garage, or not sure yet"></label>
-  <label>Vehicle and problem<textarea name="details" rows="3" placeholder="e.g. 2015 Ford Focus, won't start, in a residents' bay"></textarea></label>
+  <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Leave this field empty">
+  <label for="q-name">Your name<input id="q-name" type="text" name="name" required autocomplete="name"></label>
+  <label for="q-phone">Phone number<input id="q-phone" type="tel" name="phone" required autocomplete="tel"></label>
+  <label for="q-pickup">Where is the vehicle? <small>Road, postcode or landmark</small><input id="q-pickup" type="text" name="pickup" required></label>
+  <label for="q-dropoff">Where should it go?<input id="q-dropoff" type="text" name="dropoff" placeholder="Home, garage, or not sure yet"></label>
+  <label for="q-details">Vehicle and problem<textarea id="q-details" name="details" rows="3" placeholder="e.g. 2015 Ford Focus, won't start, in a residents' bay"></textarea></label>
   <button type="submit" class="btn btn-main">Send &ndash; we&rsquo;ll call you back</button>
   <p class="fine">For a breakdown in a live lane, call instead: <a href="$PHONE_HREF">$PHONE</a>.</p>
 </form>
@@ -196,6 +198,10 @@ $robots<link rel="canonical" href="$canon">
 <meta property="og:title" content="$title">
 <meta property="og:description" content="$desc">
 <meta property="og:url" content="$canon">
+<meta property="og:image" content="$BASE/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#111111">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -276,9 +282,18 @@ for my $p (@PAGES) {
   close $fh;
 }
 
+# old URLs: meta-refresh + canonical stubs, not in the sitemap
+for my $from (sort keys %REDIRECTS) {
+  my $to = $REDIRECTS{$from};
+  make_path("$ROOT/$from");
+  open my $fh, '>:encoding(UTF-8)', "$ROOT/$from/index.html" or die $!;
+  print $fh qq(<!DOCTYPE html>\n<html lang="en-GB">\n<head>\n<meta charset="UTF-8">\n<title>$NAME</title>\n<link rel="canonical" href="$BASE$to">\n<meta http-equiv="refresh" content="0; url=$to">\n</head>\n<body><p>This page has moved: <a href="$to">continue</a>.</p></body>\n</html>\n);
+  close $fh;
+}
+
 # sitemap + robots
 my $sm = qq(<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n);
-$sm .= "  <url><loc>" . url($_->{path}) . "</loc></url>\n" for grep { !$_->{noindex} } @PAGES;
+$sm .= "  <url><loc>" . url($_->{path}) . "</loc><lastmod>$LASTMOD</lastmod></url>\n" for grep { !$_->{noindex} } @PAGES;
 $sm .= "</urlset>\n";
 open my $s, '>:encoding(UTF-8)', "$ROOT/sitemap.xml" or die $!; print $s $sm; close $s;
 open my $r, '>', "$ROOT/robots.txt" or die $!; print $r "User-agent: *\nAllow: /\n\nSitemap: $BASE/sitemap.xml\n"; close $r;

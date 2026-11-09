@@ -3,15 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Car Towing &amp; Breakdown Recovery London 24/7 | from £125 | No Membership</title>
+<title>Car Towing &amp; Breakdown Recovery London 24/7 | from £125</title>
 <meta name="description" content="24/7 car towing and breakdown recovery across London. No membership: call, get a price, and a flatbed comes to you. Cars, vans, motorbikes, accidents, jump starts and flat tyres.">
 <link rel="canonical" href="https://rjrecovery.uk/">
 <meta property="og:locale" content="en_GB">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="London 24/7 Towing">
-<meta property="og:title" content="Car Towing &amp; Breakdown Recovery London 24/7 | from £125 | No Membership">
+<meta property="og:title" content="Car Towing &amp; Breakdown Recovery London 24/7 | from £125">
 <meta property="og:description" content="24/7 car towing and breakdown recovery across London. No membership: call, get a price, and a flatbed comes to you. Cars, vans, motorbikes, accidents, jump starts and flat tyres.">
 <meta property="og:url" content="https://rjrecovery.uk/">
+<meta property="og:image" content="https://rjrecovery.uk/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#111111">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,9 +49,22 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "London 24/7 Towing",
-  "url": "https://rjrecovery.uk/"
+  "@graph": [
+    { "@type": "WebSite", "@id": "https://rjrecovery.uk/#website", "name": "London 24/7 Towing", "url": "https://rjrecovery.uk/" },
+    {
+      "@type": "AutomotiveBusiness",
+      "@id": "https://rjrecovery.uk/#business",
+      "name": "London 24/7 Towing",
+      "url": "https://rjrecovery.uk/",
+      "telephone": "+447520639867",
+      "image": "https://rjrecovery.uk/assets/og-image.jpg",
+      "openingHours": "Mo-Su 00:00-23:59",
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "North London" },
+        { "@type": "AdministrativeArea", "name": "West London" }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -121,6 +138,9 @@
   <li><a href="/towing/ealing/"><strong>Ealing</strong><span>W5, W13 &amp; W7</span></a></li>
   <li><a href="/towing/acton/"><strong>Acton &amp; Park Royal</strong><span>W3 &amp; NW10</span></a></li>
   <li><a href="/towing/willesden/"><strong>Willesden, Harlesden &amp; Neasden</strong><span>NW10 &amp; NW2</span></a></li>
+  <li><a href="/towing/tottenham-hale/"><strong>Tottenham Hale &amp; Seven Sisters</strong><span>N17 &amp; N15</span></a></li>
+  <li><a href="/towing/brent-cross/"><strong>Brent Cross &amp; the A406</strong><span>NW4, NW2 &amp; NW11</span></a></li>
+  <li><a href="/towing/palmers-green/"><strong>Palmers Green &amp; Southgate</strong><span>N13 &amp; N14</span></a></li>
 </ul>
 
 <h2>Why call us rather than wait</h2>
@@ -154,12 +174,12 @@
   <input type="hidden" name="_subject" value="rjrecovery.uk: new tow request">
   <input type="hidden" name="_next" value="https://rjrecovery.uk/thank-you/">
   <input type="hidden" name="_template" value="table">
-  <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
-  <label>Your name<input type="text" name="name" required autocomplete="name"></label>
-  <label>Phone number<input type="tel" name="phone" required autocomplete="tel"></label>
-  <label>Where is the vehicle? <small>Road, postcode or landmark</small><input type="text" name="pickup" required></label>
-  <label>Where should it go?<input type="text" name="dropoff" placeholder="Home, garage, or not sure yet"></label>
-  <label>Vehicle and problem<textarea name="details" rows="3" placeholder="e.g. 2015 Ford Focus, won't start, in a residents' bay"></textarea></label>
+  <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Leave this field empty">
+  <label for="q-name">Your name<input id="q-name" type="text" name="name" required autocomplete="name"></label>
+  <label for="q-phone">Phone number<input id="q-phone" type="tel" name="phone" required autocomplete="tel"></label>
+  <label for="q-pickup">Where is the vehicle? <small>Road, postcode or landmark</small><input id="q-pickup" type="text" name="pickup" required></label>
+  <label for="q-dropoff">Where should it go?<input id="q-dropoff" type="text" name="dropoff" placeholder="Home, garage, or not sure yet"></label>
+  <label for="q-details">Vehicle and problem<textarea id="q-details" name="details" rows="3" placeholder="e.g. 2015 Ford Focus, won't start, in a residents' bay"></textarea></label>
   <button type="submit" class="btn btn-main">Send &ndash; we&rsquo;ll call you back</button>
   <p class="fine">For a breakdown in a live lane, call instead: <a href="tel:+447520639867">07520 639867</a>.</p>
 </form>

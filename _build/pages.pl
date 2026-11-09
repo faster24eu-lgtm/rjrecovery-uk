@@ -7,7 +7,7 @@ push @main::PAGES,
 {
   path => '', label => 'Home',
   service => 'Car towing and breakdown recovery',
-  title => 'Car Towing &amp; Breakdown Recovery London 24/7 | {{PRICE}} | No Membership',
+  title => 'Car Towing &amp; Breakdown Recovery London 24/7 | {{PRICE}}',
   description => '24/7 car towing and breakdown recovery across London. No membership: call, get a price, and a flatbed comes to you. Cars, vans, motorbikes, accidents, jump starts and flat tyres.',
   h1 => 'Car towing and breakdown recovery in London, 24/7',
   lead => 'Broken down, crashed, or the car just won&rsquo;t start? Call with your location, hear the price, and a recovery truck comes to you. No membership and no sign-up.',
@@ -15,9 +15,22 @@ push @main::PAGES,
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "London 24/7 Towing",
-  "url": "https://rjrecovery.uk/"
+  "@graph": [
+    { "@type": "WebSite", "@id": "https://rjrecovery.uk/#website", "name": "London 24/7 Towing", "url": "https://rjrecovery.uk/" },
+    {
+      "@type": "AutomotiveBusiness",
+      "@id": "https://rjrecovery.uk/#business",
+      "name": "London 24/7 Towing",
+      "url": "https://rjrecovery.uk/",
+      "telephone": "+447520639867",
+      "image": "https://rjrecovery.uk/assets/og-image.jpg",
+      "openingHours": "Mo-Su 00:00-23:59",
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "North London" },
+        { "@type": "AdministrativeArea", "name": "West London" }
+      ]
+    }
+  ]
 }
 </script>
 LD
@@ -58,7 +71,7 @@ HTML
 
 {
   path => 'services', label => 'Services', nav => 'services', crumbs => [],
-  title => 'Towing &amp; Recovery Services in London | Cars, Vans, Bikes, Accidents',
+  title => 'Towing &amp; Recovery Services in London | Cars, Vans, Bikes',
   description => 'Every towing and recovery service we arrange in London: car towing, breakdown recovery, accident recovery, vans, motorbikes, jump starts, flat tyres, wrong fuel and winching.',
   h1 => 'Towing and recovery services',
   lead => 'Pick what matches your situation, or just call and describe it. We&rsquo;ll work out what&rsquo;s needed.',

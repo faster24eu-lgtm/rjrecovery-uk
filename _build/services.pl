@@ -8,7 +8,7 @@ push @main::PAGES,
   path => 'car-towing', kind => 'service', nav => 'services', crumbs => \@svc_crumb,
   label => 'Car towing', card => 'Flatbed tow to your home, garage or anywhere in the UK.',
   service => 'Car towing',
-  title => 'Car Towing London 24/7 | Flatbed Tow {{PRICE}}',
+  title => 'Car Towing London 24/7 | Flatbed Tow, Price Upfront',
   description => 'Car towing anywhere in Greater London, 24 hours a day. Flatbed recovery to your home, garage or dealer, with the price agreed on the phone before the truck is sent.',
   h1 => 'Car towing in London, any time of day',
   lead => 'Your car won&rsquo;t move and needs to be somewhere else: home, a garage, a dealer, a scrapyard or the other end of the country. One call and a flatbed comes to you.',
@@ -16,7 +16,7 @@ push @main::PAGES,
 <h2>How a tow works when you call us</h2>
 <ol class="steps">
   <li><strong>Tell us where the car is.</strong> A postcode, road name, car park level or even &ldquo;outside the Tesco on the High Road&rdquo; is enough. If you&rsquo;re not sure, send your live location on WhatsApp.</li>
-  <li><strong>Get the price.</strong> We ask what the car is, whether it rolls and steers, and where it&rsquo;s going. You hear the full price before anyone is sent. Local London tows start {{PRICE}}.</li>
+  <li><strong>Get the price.</strong> We ask what the car is, whether it rolls and steers, and where it&rsquo;s going. You hear the full price before anyone is sent.</li>
   <li><strong>The truck comes to you.</strong> We pass the job to the nearest available operator in our network and text you their details. In most of London the wait is 30 to 75 minutes, depending on traffic.</li>
   <li><strong>Car loaded, delivered, done.</strong> The car goes on a flatbed, so all four wheels are off the ground. That matters for automatics, 4x4s and electric cars, which shouldn&rsquo;t be dragged on two wheels.</li>
 </ol>
@@ -37,7 +37,7 @@ push @main::PAGES,
 <p>Anywhere. Most jobs stay inside the M25, but we also do long-distance tows from London to Birmingham, Manchester, Glasgow or a port. For long runs the price is set by distance and you hear it before you agree.</p>
 HTML
   faq => [
-    [ 'How much does it cost to tow a car in London?', 'A local tow inside London usually starts {{PRICE}}. The price depends on distance, time of night, how easy it is to get the car out (an underground car park takes longer than a driveway) and whether the wheels turn. You always hear the full price on the phone before anything is booked.' ],
+    [ 'How much does it cost to tow a car in London?', 'The price depends on distance, time of night, how easy it is to get the car out (an underground car park takes longer than a driveway) and whether the wheels turn. You always hear the full price on the phone before anything is booked.' ],
     [ 'Do you tow automatic and electric cars?', 'Yes. Both go on a flatbed with all four wheels off the road, which is how most manufacturers say they should be moved.' ],
     [ 'Can you tow my car if I don&rsquo;t have the keys?', 'Usually, yes. Tell us before the truck is sent. A car with locked steering or the parking brake stuck on needs skates, so the operator has to know in advance.' ],
     [ 'Do I need to be with the car?', 'It&rsquo;s easiest if you are. If you can&rsquo;t be, tell us when you call. We can arrange a pick-up with the keys left somewhere safe and someone to sign at the drop-off.' ],

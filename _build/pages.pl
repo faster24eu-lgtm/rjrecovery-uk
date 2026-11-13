@@ -7,7 +7,7 @@ push @main::PAGES,
 {
   path => '', label => 'Home',
   service => 'Car towing and breakdown recovery',
-  title => 'Car Towing &amp; Breakdown Recovery London 24/7 | {{PRICE}}',
+  title => 'Car Towing &amp; Breakdown Recovery London 24/7 | Price Agreed Upfront',
   description => '24/7 car towing and breakdown recovery across London. No membership: call, get a price, and a flatbed comes to you. Cars, vans, motorbikes, accidents, jump starts and flat tyres.',
   h1 => 'Car towing and breakdown recovery in London, 24/7',
   lead => 'Broken down, crashed, or the car just won&rsquo;t start? Call with your location, hear the price, and a recovery truck comes to you. No membership and no sign-up.',
@@ -41,7 +41,7 @@ LD
 <h2>How it works</h2>
 <ol class="steps">
   <li><strong>Call or WhatsApp your location.</strong> A postcode, road name or live location pin.</li>
-  <li><strong>Hear the full price first.</strong> Local London tows start {{PRICE}}. Nothing is booked until you say yes.</li>
+  <li><strong>Hear the full price first.</strong> Nothing is booked until you say yes.</li>
   <li><strong>A local operator comes to you.</strong> We send the nearest available recovery truck from our network and text you their details.</li>
   <li><strong>Fixed or towed.</strong> Roadside fix where possible. Otherwise the car goes on a flatbed to wherever you choose.</li>
 </ol>
@@ -63,7 +63,7 @@ LD
 HTML
   faq => [
     [ 'How quickly can you get to me in London?', 'Typically 30 to 75 minutes, depending on where you are, the time of day and the traffic. We give you a realistic estimate on the call, not a guess to win the job.' ],
-    [ 'How much does breakdown recovery cost in London?', 'Local tows start {{PRICE}}. Longer distances, night-time calls and difficult recoveries (underground car parks, cars that won&rsquo;t roll) cost more. You always get the full price before anything is booked.' ],
+    [ 'How much does breakdown recovery cost in London?', 'The price depends on distance. Night-time calls and difficult recoveries (underground car parks, cars that won&rsquo;t roll) cost more. You always get the full price before anything is booked.' ],
     [ 'Do I need breakdown cover to use you?', 'No. You call, get a price and pay for that job only.' ],
     [ 'Do you tow vans and motorbikes too?', 'Yes. Vans up to 3.5&nbsp;t, including Lutons and long-wheelbase panel vans, plus motorbikes and scooters of every size.' ],
   ],
@@ -105,7 +105,7 @@ HTML
   title => 'How Much Does Car Towing Cost in London? (2026 Guide)',
   description => 'What a car tow costs in London in 2026, what pushes the price up (distance, night, car parks, non-rollers) and how to make sure the price you&rsquo;re quoted is the price you pay.',
   h1 => 'How much does a tow cost in London?',
-  lead => 'Short answer: a local tow in London usually starts at around &pound;125. Here&rsquo;s what makes it more, and how to avoid paying more than you were quoted.',
+  lead => 'Short answer: it depends on distance, time of night and how easy the car is to load. Here&rsquo;s what makes it more, and how to avoid paying more than you were quoted.',
   body => <<'HTML',
 <h2>What decides the price</h2>
 <ul>

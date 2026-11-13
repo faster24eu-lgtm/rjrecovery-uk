@@ -24,7 +24,7 @@ our $PHONE_HREF = 'tel:+447520639867';
 our $PHONE      = '07520 639867';
 our $WA_HREF    = 'https://wa.me/447988974609?text=Hi%2C%20I%20need%20a%20tow%20in%20London.%20My%20location%20is%3A%20';
 our $FORM_TO    = 'faster24eu@gmail.com';    # formsubmit.co recipient
-our $PRICE      = 'from &pound;125';
+our $PRICE      = q(price agreed before we set off);  # never a minimum price (owner rule 2026-11-05)
 our $LASTMOD    = '2026-11-09';   # sitemap lastmod; bump when pages change
 our %REDIRECTS;
 our $YEAR       = (localtime)[5] + 1900;

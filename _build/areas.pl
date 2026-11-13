@@ -275,6 +275,13 @@ my @AREAS = (
 
 my %BY = map { $_->{slug} => $_ } @AREAS;
 
+# Per-area lead and price text, so area pages share no template paragraphs (2026-11-13).
+my %AT;
+open my $at, '<:encoding(UTF-8)', '_build/area_text.tsv' or die "_build/area_text.tsv: $!";
+<$at>;
+while (my $l = <$at>) { $l =~ s/\r?\n$//; my ($s, $lead, $price) = split /\t/, $l; next unless $price; s/’/&rsquo;/g, s/ & / &amp; /g for $lead, $price; $AT{$s} = { lead => $lead, price => $price } }
+$AT{$_->{slug}} or die "area_text.tsv has no line for $_->{slug}\n" for @AREAS;
+
 sub area_body {
   my $a = shift;
   my $roads = join "\n", map { "  <li><strong>$_->[0]</strong>: $_->[1]</li>" } @{ $a->{roads} };
@@ -302,8 +309,8 @@ ${\ ($a->{extra} ? "\n<h2>$a->{extra}[0]</h2>\n<p>$a->{extra}[1]</p>\n" : '')}
   <li><a href="/wrong-fuel/">Wrong fuel</a></li>
 </ul>
 
-<h2>Price</h2>
-<p>Local tows in and around $a->{name} start {{PRICE}}. You hear the full price before the truck is sent. It depends on where the car is going, the time of night and how easy it is to load.</p>
+<h2>Price in $a->{name}</h2>
+<p>$AT{$a->{slug}}{price} You hear the full price before the truck is sent.</p>
 
 <h2>Nearby areas</h2>
 <ul class="inline">
@@ -319,10 +326,10 @@ for my $a (@AREAS) {
     path => "towing/$a->{slug}", kind => 'area', nav => 'towing', crumbs => [ [ 'Areas', 'towing' ] ],
     label => $n, card => $a->{pc}, big => ($n =~ s/(,| &amp;).*//r),
     service => 'Car towing and breakdown recovery', area => "$nplain, London",
-    title => fit_title("Towing $n 24/7 | Car &amp; Van Recovery {{PRICE}}", "Towing $n 24/7 | Recovery {{PRICE}}", "Towing $n 24/7 | Car &amp; Van Recovery", "Towing $n 24/7"),
+    title => fit_title("Towing $n 24/7 | Car &amp; Van Recovery", "Towing $n 24/7"),
     description => $a->{desc} // "24/7 car towing and breakdown recovery in $n ($a->{pc}). Flatbed recovery to home or garage, jump starts, accident and van recovery. Price agreed before dispatch.",
     h1 => "Towing and breakdown recovery in $n",
-    lead => "Cars, vans and motorbikes recovered across $a->{pc}, 24 hours a day. Call with your location and get a price straight away.",
+    lead => $AT{$a->{slug}}{lead},
     body => area_body($a),
     faq => $a->{faq},
   };

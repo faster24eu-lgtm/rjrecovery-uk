@@ -20,8 +20,12 @@ use FindBin qw($Bin);
 
 our $BASE       = 'https://rjrecovery.uk';
 our $NAME       = 'London 24/7 Towing';
-our $PHONE_HREF = 'tel:+447520639867';
-our $PHONE      = '07520 639867';
+# NO CONTACT until this site ranks (owner decision 2026-11-13): no phone, no WhatsApp,
+# no forms, and /contact-us/ and /thank-you/ redirect home. To switch contact back on,
+# set $NO_CONTACT = 0 and fill in $PHONE_HREF and $PHONE.
+our $NO_CONTACT = 1;
+our $PHONE_HREF = '';
+our $PHONE      = '';
 our $WA_HREF    = 'https://wa.me/447988974609?text=Hi%2C%20I%20need%20a%20tow%20in%20London.%20My%20location%20is%3A%20';
 our $FORM_TO    = 'faster24eu@gmail.com';    # formsubmit.co recipient
 our $PRICE      = q(price agreed before we set off);  # never a minimum price (owner rule 2026-11-05)
@@ -38,6 +42,11 @@ for my $f (qw(services.pl areas.pl pages.pl)) {
   die "$f: $!" unless defined $r;
 }
 
+if ($NO_CONTACT) {
+  @PAGES = grep { $_->{path} !~ m{^(contact-us|thank-you)$} } @PAGES;
+  $REDIRECTS{$_} = '/' for qw(contact-us thank-you);
+  for (@PAGES) { $_->{no_form} = 1; $_->{no_cta} = 1 }
+}
 my %BY_PATH = map { $_->{path} => $_ } @PAGES;
 
 # ------------------------------------------------------------------ helpers
@@ -49,6 +58,7 @@ sub href { my $p = shift; $p eq '' ? '/' : "/$p/" }
 
 sub fill {
   my $s = shift;
+  $s = nophone_text($s) if $PHONE eq '';
   $s =~ s/\{\{PHONE\}\}/$PHONE/g;
   $s =~ s/\{\{PHONE_HREF\}\}/$PHONE_HREF/g;
   $s =~ s/\{\{WA_HREF\}\}/$WA_HREF/g;
@@ -278,7 +288,7 @@ for my $p (@PAGES) {
   my $out = "$ROOT/$file";
   make_path(dirname($out));
   open my $fh, '>:encoding(UTF-8)', $out or die "$out: $!";
-  print $fh render($p);
+  print $fh nocontact_html(render($p));
   close $fh;
 }
 
@@ -311,3 +321,49 @@ for my $p (@PAGES) {
   }
 }
 printf "%d pages written, %d broken links\n", scalar(@PAGES), $bad;
+
+# ---------------------------------------------------------------- no phone
+sub nophone_text {
+  my $s = shift;
+  $s =~ s/ Call \{\{PHONE\}\}\.//g;
+  $s =~ s/Call \{\{PHONE\}\} or WhatsApp us/Contact us/g;
+  $s =~ s/ Quote on the call: \{\{PHONE\}\}\././g;
+  $s =~ s/,? by calling \{\{PHONE\}\}\././g;
+  $s =~ s{<p><a class="big-link" href="\{\{PHONE_HREF\}\}">\{\{PHONE\}\}</a></p>\n?}{}g;
+  $s =~ s{\s*<li><strong>Phone, 24/7:</strong> <a href="\{\{PHONE_HREF\}\}">\{\{PHONE\}\}</a></li>}{}g;
+  $s =~ s{Call us on <a href="\{\{PHONE_HREF\}\}">\{\{PHONE\}\}</a>\.}{Call a recovery service or your breakdown cover.}g;
+  $s =~ s{call us now on <a href="\{\{PHONE_HREF\}\}">\{\{PHONE\}\}</a>}{call 999}g;
+  die "phone placeholder left in: " . substr($s, $-[0] - 60, 140) . "\n" if $s =~ /\{\{PHONE(_HREF)?\}\}/;
+  $s;
+}
+
+sub nophone_html {
+  my $h = shift;
+  return $h unless $PHONE eq '';
+  $h =~ s{<p class="fine">[^<]*<a href="">\s*</a>\.</p>}{<p class="fine">In a live lane or hurt? Call 999 first.</p>}g;
+  $h =~ s{<p><a href="">\s*</a> &middot; (<a href="[^"]+">WhatsApp</a>)</p>}{<p>$1</p>}g;
+  $h =~ s{\s*<a class="[^"]*" href="">.*?</a>}{}gs;
+  $h =~ s{\s*"telephone":\s*"[^"]*",}{}g;
+  $h =~ s{,\s*"telephone":\s*"[^"]*"}{}g;
+  die "empty tel link left\n" if $h =~ /href=""/;
+  die "old number left\n" if $h =~ /7520 ?639 ?867|447520639867/;
+  $h;
+}
+
+# ---------------------------------------------------------------- no contact
+sub nocontact_html {
+  my $h = nophone_html(shift);
+  return $h unless $NO_CONTACT;
+  $h =~ s{\s*<section class="band">.*?</section>}{}s;
+  $h =~ s{\s*<div class="hero-cta">.*?</div>}{}s;
+  $h =~ s{\s*<a class="[^"]*\bbtn\b[^"]*" href="https://wa\.me/[^"]*"[^>]*>.*?</a>}{}gs;
+  $h =~ s{\s*<p>(?:<a href="">\s*</a> &middot; )?<a href="https://wa\.me/[^"]*">WhatsApp</a></p>}{}g;
+  $h =~ s{<a href="https://wa\.me/[^"]*"[^>]*>(.*?)</a>}{$1}gs;
+  $h =~ s{<li><a href="/contact-us/"[^>]*>Contact</a></li>}{}g;
+  $h =~ s{<a href="/contact-us/"[^>]*>(.*?)</a>}{$1}gs;
+  $h =~ s{is an independent call-connection service: we take your call and send a vetted recovery operator from our network to your vehicle\.}{is an independent site about towing and breakdown recovery. We don&rsquo;t take bookings through this site.}g;
+  for my $bad ('wa.me', '<form', 'href="tel:', 'formsubmit', '/contact-us/', '/thank-you/') {
+    die "contact left in page: $bad\n" if index($h, $bad) >= 0 && $h !~ /http-equiv="refresh"/;
+  }
+  $h;
+}

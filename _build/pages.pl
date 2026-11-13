@@ -40,7 +40,7 @@ LD
 
 <h2>How it works</h2>
 <ol class="steps">
-  <li><strong>Call or WhatsApp your location.</strong> A postcode, road name or live location pin.</li>
+  <li><strong>Give your location.</strong> A postcode, road name or live location pin.</li>
   <li><strong>Hear the full price first.</strong> Nothing is booked until you say yes.</li>
   <li><strong>A local operator comes to you.</strong> We send the nearest available recovery truck from our network and text you their details.</li>
   <li><strong>Fixed or towed.</strong> Roadside fix where possible. Otherwise the car goes on a flatbed to wherever you choose.</li>
@@ -158,7 +158,7 @@ HTML
   <li>The last junction you passed: Hanger Lane, Neasden, Staples Corner, Henlys Corner, Great Cambridge, Crooked Billet&hellip;</li>
   <li>Any landmark: the IKEA, a retail park, a petrol station, a footbridge</li>
 </ul>
-<p>Or just send your live location on WhatsApp. It&rsquo;s the quickest way.</p>
+<p>A live location pin from your phone&rsquo;s map app is often the quickest way.</p>
 
 <h2>4. Call for recovery</h2>
 <p>Call us on <a href="{{PHONE_HREF}}">{{PHONE}}</a>. The A406 is a red route, so cars need to be cleared quickly. Recovery trucks can stop where you can&rsquo;t, with beacons and signage.</p>
@@ -249,13 +249,11 @@ HTML
 {
   path => 'privacy', label => 'Privacy', crumbs => [], no_form => 1, no_cta => 1,
   title => 'Privacy Policy',
-  description => 'How rjrecovery.uk handles the details you send us when you request a tow.',
+  description => 'How rjrecovery.uk handles visitor data.',
   h1 => 'Privacy policy',
   body => <<'HTML',
-<p>When you call us or use the form, we collect your name, phone number, vehicle details and the pick-up and drop-off locations. We use them only to arrange your recovery and to contact you about that job.</p>
-<p>We share these details with the recovery operator who takes the job, so they can find you and contact you. We don&rsquo;t sell your details or use them for marketing.</p>
-<p>The form is processed by FormSubmit (formsubmit.co), which emails your request to us. We keep job records for as long as needed for accounting and any insurance claims, then delete them.</p>
-<p>This site doesn&rsquo;t use advertising or tracking cookies. You can ask us what we hold about you, or ask us to delete it, by calling {{PHONE}}.</p>
+<p>This site does not collect personal details. There are no forms and no accounts, and we don&rsquo;t take bookings through the site.</p>
+<p>The site doesn&rsquo;t use advertising or tracking cookies. Our host may keep standard server logs (such as IP address and pages visited) for security.</p>
 HTML
 },
 

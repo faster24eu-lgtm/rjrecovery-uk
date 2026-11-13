@@ -15,7 +15,7 @@ push @main::PAGES,
   body => <<'HTML',
 <h2>How a tow works when you call us</h2>
 <ol class="steps">
-  <li><strong>Tell us where the car is.</strong> A postcode, road name, car park level or even &ldquo;outside the Tesco on the High Road&rdquo; is enough. If you&rsquo;re not sure, send your live location on WhatsApp.</li>
+  <li><strong>Tell us where the car is.</strong> A postcode, road name, car park level or even &ldquo;outside the Tesco on the High Road&rdquo; is enough. If you&rsquo;re not sure, share your live location from your phone&rsquo;s map app.</li>
   <li><strong>Get the price.</strong> We ask what the car is, whether it rolls and steers, and where it&rsquo;s going. You hear the full price before anyone is sent.</li>
   <li><strong>The truck comes to you.</strong> We pass the job to the nearest available operator in our network and text you their details. In most of London the wait is 30 to 75 minutes, depending on traffic.</li>
   <li><strong>Car loaded, delivered, done.</strong> The car goes on a flatbed, so all four wheels are off the ground. That matters for automatics, 4x4s and electric cars, which shouldn&rsquo;t be dragged on two wheels.</li>
@@ -299,7 +299,7 @@ HTML
 <p>They find a safe anchor, rig the winch to a proper recovery point on your car (not the bumper), and pull it out slowly. Then they check the tyres, the underside and the steering. If anything is damaged or leaking, the car goes on the bed instead of being driven away.</p>
 
 <h2>Help us find you</h2>
-<p>Fields and sites rarely have a postcode that takes you to the right spot. Send your live location on WhatsApp, or a what3words address, and tell us which way in is best for a truck.</p>
+<p>Fields and sites rarely have a postcode that takes you to the right spot. Share your live location or a what3words address, and tell us which way in is best for a truck.</p>
 HTML
   faq => [
     [ 'Will winching damage my car?', 'Not when it&rsquo;s attached to a proper towing eye or recovery point and pulled slowly. Damage usually comes from pulling on bumpers or suspension parts, or from spinning the wheels beforehand.' ],
